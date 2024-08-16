@@ -6,13 +6,16 @@ import ReactDOM from 'react-dom/client'; // Import ReactDOM for rendering
 import './App.css'; // Import global styles
 import App from './App'; // Import the main App component
 import reportWebVitals from './reportWebVitals'; // Import performance logging
+import { BrowserRouter } from 'react-router-dom';
 
 // 🎯 Render the App component into the root element
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App /> {/* Render the main App component */}
-  </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <App /> {/* Render the main App component */}
+    </React.StrictMode>
+  </BrowserRouter>,
 );
 
 // Measure performance and log results

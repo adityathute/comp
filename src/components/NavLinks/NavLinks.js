@@ -1,5 +1,5 @@
-// src/NavLinks/NavLinks.js
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './NavLinks.css'; // Import component-specific styles
 import Config from './Config'; // Import configuration data
 
@@ -44,22 +44,32 @@ const NavLinks = () => {
     // Toggle the menu visibility and close any open dropdown
     const handleToggleClick = () => {
         setMenuOpen(prev => {
-            if (!prev) setOpenDropdown(null);
-            return !prev;
+            const newMenuOpen = !prev;
+            if (!newMenuOpen) setOpenDropdown(null); // Close all dropdowns when menu closes
+            return newMenuOpen;
         });
+    };
+
+    // Close all dropdowns and the menu
+    const closeMenuAndDropdowns = () => {
+        setOpenDropdown(null);
+        setMenuOpen(false);
     };
 
     // Render individual menu items based on their type
     const renderItem = (item, index) => (
         item.type === 'link' ? (
             <li key={index}>
-                <a href={item.href}>{item.label}</a>
+                <Link to={item.href} onClick={closeMenuAndDropdowns}>{item.label}</Link>
             </li>
         ) : item.type === 'dropdown' && (
             <li key={index} className="NavLinks-dropdown">
                 <a
                     href="#!"
-                    onClick={() => setOpenDropdown(prev => prev === item.key ? null : item.key)}
+                    onClick={(e) => {
+                        e.preventDefault(); // Prevent default anchor behavior
+                        setOpenDropdown(prev => prev === item.key ? null : item.key);
+                    }}
                 >
                     {item.label}
                     <svg
@@ -79,7 +89,9 @@ const NavLinks = () => {
                     {item.items
                         .sort((a, b) => a.position - b.position) // Sort dropdown items by position
                         .map((subItem, subIndex) => (
-                            <li key={subIndex}><a href={subItem.href}>{subItem.label}</a></li>
+                            <li key={subIndex}>
+                                <Link to={subItem.href} onClick={closeMenuAndDropdowns}>{subItem.label}</Link>
+                            </li>
                         ))}
                 </ul>
             </li>
