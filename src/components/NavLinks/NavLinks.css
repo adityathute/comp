@@ -1,0 +1,133 @@
+/* src/NavLinks/NavLinks.css */
+.NavLinks-navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    height: 40px;
+}
+
+.NavLinks-navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.NavLinks-navbar-menu li {
+    position: relative;
+}
+
+.NavLinks-navbar-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+}
+
+/* Dropdown Styles */
+.NavLinks-dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    width: max-content;
+    z-index: 1000;
+}
+
+/* Show dropdown on active state */
+.NavLinks-dropdown-menu-active {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.NavLinks-dropdown-menu a {
+    color: #f5f5f5;
+    padding: 16px 24px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.NavLinks-dropdown-menu a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Mobile Styles */
+@media (min-width: 768px) {
+    .NavLinks-navbar-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .NavLinks-navbar {
+        justify-content: start;
+    }
+    .NavLinks-navbar-menu {
+        flex-direction: column;
+        display: flex;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden; 
+        transition: max-height 0.5s ease-out;
+    }
+    .NavLinks-navbar-menu a {
+        padding: 16px 30px;
+    }
+    .NavLinks-dropdown-menu a {
+        padding: 16px 36px;
+    }
+
+    .NavLinks-navbar-menu .NavLinks-dropdown-menu {
+        position: static;
+        background-color: #333;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .NavLinks-navbar-toggle {
+        display: block; 
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .NavLinks-navbar-menu li {
+        width: 100%;
+    }
+}
+
+/* Arrow Icon Styles */
+.NavLinks-arrow-icon {
+    display: inline-block;
+    margin-left: 3px;
+    transition: transform 0.3s ease-out;
+    width: 18px;
+    vertical-align: middle;
+}
+
+.NavLinks-arrow-icon-open {
+    transform: rotate(180deg);
+}

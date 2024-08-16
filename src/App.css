@@ -1,0 +1,134 @@
+/* src/App.css */
+/* Global Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Container */
+.app-container {
+  position: relative;
+  width: 100vw;
+  /* height: 100vh; */
+  /* overflow: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+/* Main Content */
+.main-content {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  /* margin: auto 30px; */
+}
+
+/* Headings and Text */
+.heading-container,
+.text-content {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  cursor: context-menu;
+  user-select: none;
+}
+
+.heading-container {
+  flex-direction: row;
+}
+
+.text-content {
+  font-family: "Fira Code", sans-serif;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+
+.main-content h1,
+.main-content p {
+  color: white;
+  margin: 0;
+  cursor: context-menu;
+  user-select: none;
+}
+
+.main-content h1 {
+  font-size: 3rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.main-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .heading-container {
+    margin-bottom: 10px;
+  }
+
+  .text-content {
+    flex-direction: column;
+  }
+
+  .main-content p {
+    margin: 3px;
+  }
+}
+
+@media (max-width: 550px) {
+  .heading-container {
+    flex-direction: column;
+  }
+
+  .heading-container h1 {
+    margin: 0;
+  }
+
+  .main-content p {
+    margin: 3px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-content h1 {
+    font-size: 2rem;
+  }
+
+  .text-content {
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
+  .main-content p {
+    font-size: 0.8rem;
+    margin: 3px;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-content p {
+    font-size: 0.7rem;
+    margin: 2px;
+  }
+}

@@ -1,0 +1,61 @@
+/* src/components/CountDown.css */
+/* Countdown */
+.countdown {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    cursor: context-menu;
+    user-select: none;
+}
+
+.countdown-item {
+    background: #00000033;
+    color: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.countdown-label {
+    font-size: 0.75rem;
+}
+
+/* Responsive Design for Countdown */
+@media (max-width: 768px) {
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .countdown {
+        gap: 8px;
+    }
+
+    .countdown-item {
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
